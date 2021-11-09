@@ -5,9 +5,8 @@ import RegisterPage from "./pages/registerPage";
 import DashboardPage from "./pages/dashboardPage";
 import IndexPage from "./pages/indexPage";
 import ChatroomPage from "./pages/chatroomPage";
-//import io from "socket.io-client";
-//import makeToast from "./Toaster/toaster";
-
+import VideoChatPage from "./pages/videoChatPage";
+import AboutPage from "./pages/aboutPage"
 
 function App() {
  
@@ -31,9 +30,19 @@ return (
           component={DashboardPage}
           exact />
         <Route 
-        path="/chatroom/:id" 
+        path="/chatroom/:name/:id" 
         //render={() => <ChatroomPage socket={socket} />} 
         component={ChatroomPage}
+        exact />
+        <Route 
+        path="/about" 
+        //render={() => <ChatroomPage socket={socket} />} 
+        component={AboutPage}
+        exact />
+        <Route 
+        path="/videochat" 
+        //render={() => <ChatroomPage socket={socket} />} 
+        component={VideoChatPage}
         exact />
       </Switch>
     </BrowserRouter>

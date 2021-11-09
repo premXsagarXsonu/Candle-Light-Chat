@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 
 exports.register = async (req, res) => {
     const {name, email, password } = req.body;
-    const emailRegex = /[@gamil.com|@yahoo.com|@hotmail.com|@pes.edu]+$/;
+    const emailRegex = /^[a-zA-Z0-9_.+-]+@(?:(?:[a-zA-Z0-9-]+\.)?[a-zA-Z]+\.)?(gmail|yahoo|pes.edu|hotmail)\.com$/g;
     if (!emailRegex.test(email)) throw "Email is not supported from your domain.";
     if (password.length < 6) throw "Password must be atleast 6 characters length.";
 

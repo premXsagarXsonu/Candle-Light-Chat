@@ -1,92 +1,149 @@
 @import url('https://fonts.googleapis.com/css2?family=Signika:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pattaya&display=swap');
 
 *{
     font-family: Signika;
+    /* font-family: Pattaya; */
+
     box-sizing: border-box;
-    color: #333;
+    color: #ffff; 
+      
 
     
 }
+.top{
+    background-color: #FDAF01;
+}
 .title{
-    color: aliceblue;
-    background-color:rgb(228, 89, 8);
-    font-size: 40px;
-    font-weight: bold;
-    width: 190px;
-    padding-left: 30px;
-    border-radius: 0 10px 0 10px;
-    top: 30%;
-    margin-top: 30px;
-    margin-left: 20px;
-    transform: skewY();
+    margin: .3rem;
+   color: #ffff;
+   font-size: 2.8rem;
+   font-family: Pattaya;
+  
+}
 
+.navlinks{
+    font-family: Pattaya;
+    color: #ffff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+.hometitle{
+    text-align: center;
+    color: #ffff;
+    background-color: #101010;
+    margin: 1rem 4rem;
+    border-radius: .5rem;
+    font-size: 3.2rem;
+    font-family: Pattaya;
+}
+.hometitlebg{
+    background-color: #FDAF01;
+}
+.homepic{
+    margin-left: 1rem;
+    padding: 2rem;
+    height: 100%;
+    width: 98%;
+    border-radius: 1rem;
+}
+
+.midcont{
+    background-color: #101010;
+    height:150%;
+    width: 100%;
+}
+.lastcont{
+    background-color: #101010;
+}
+.ad1{
+    
+    left: 20%;
+    margin-top: 4rem;
+    height:70%;
+    width: 35%;
+    border: #333 .3rem solid;
+    border-radius: .5rem;
+}
+.ad2{
+    
+    margin-top: 2rem;
+    height: 70%;
+    width: 35%;
+    border: #333 .3rem solid;
+    border-radius: .5rem;
+    margin-bottom: 2rem;
+}
+.ad{
+    color: #fff;
 }
 body{
     font-size: 16px;
-    background-color: aliceblue;
-    
+    background-color: #101010;
+    /* background-color: aliceblue;
+    background-color:#FDAF01; */
+}
+label{
+    color: #ffff;
+    margin: 0.5rem;
 }
 .card{
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     border-radius: 4px;
     padding: 1rem;
-    position: relative;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    width: 25vw;
-    transform: translate(-50% , -50%);
+    background-color: #101010;
+    width: 70%;
+    margin-left: 2rem;
 }
-.cardBody{ 
+.subbtn{
     margin-top: 2rem;
 }
-.cardHeader:hover{
-    font-size: 1.3rem;
+.cardBody{ 
+    margin-bottom: 1rem;
 }
 .cardHeader{
     color: aliceblue;
-    background:rgb(228, 89, 8);
+    font-family: Pattaya;
+    background: #101010;;
     padding: 00.7rem 1.5rem;
-    border-radius: 2px;
-    text-transform:uppercase;
-    font-size: 1.1rem;
-    font-weight: bold;
+    font-size: 1.8rem;
     display: inline-block;
-    position: absolute;
-    top: -1rem;
-    left: -0.75;
-    transform: skewY();
-
 }
 button:hover{
-    background-color:rgb(241, 76, 11) ;
+    background-color:black;
 }
 .intputGroup{
     margin-bottom: 1rem;
 }
-label:hover{
-    font-size: 1rem;
-  
-}
 label{
     font-size: 0.9rem;
+}
+.adt{
+    display: inline;
 }
 
 input{
     border: none;
     padding: 0.5rem 0.1rem;
-    width: 100%;
+    width: 50px;
     border-radius: 2px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid rgb(20, 17, 17);
     transition: all 0.5s;
+    color: black;
     
 }
 input:focus{
     border-bottom: 1px solid #eee;
 }
+button:hover{
+    color: black;
+    background-color:rgb(90, 88, 87);
+    font-size: medium;
+}
 button{
     color: seashell;
-    background:rgb(228, 89, 8);
+    background:#FDAF01;
     border: none;
     padding: 0.7rem 1.5rem;
     border-radius: 2px;
@@ -96,22 +153,31 @@ button{
 }
 .chatrooms{
     margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 .chatroom{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    border-collapse: collapse;
+    
+
 }
+
 .join:hover{
-    background-color:rgb(241, 76, 11) ;
-    font-size: medium;
+    background-color:black;
+    background-color:rgb(90, 88, 87);
 }
 .join{
-    background: rgb(228, 89, 8);
-    padding: 0.25rem 1rem;
+    font-size: 1rem;
+    background: #101010;
+    padding: 0.50rem 1rem;
     border-radius: 2px;
-    color: aliceblue;
+    color: #ffff;
+}
+.navbutton{
+    margin-top: 1.5rem;
 }
 .chatrooms{
     margin-top: 1rem;
@@ -120,4 +186,121 @@ a{
     text-decoration: none;
     color: #333;
 
+}
+.footer{
+    width: 100%;  
+    height: 3.5rem;  
+    text-align: center;
+    background-color: #FDAF01;
+    color: #101010;
+    font-weight: lighter;
+    font-family: serif;
+    /* padding-top: .5rem; */
+    /* padding: 1rem; */
+    font-size: 1rem;
+}
+.regpic{
+    width: 90%;
+    height: 100%;
+    border-radius: 3rem;
+    padding: 2rem;
+}
+.tagline{
+    font-family: Pattaya;
+    font-size: 3rem;
+}
+
+.random{
+    margin-top: 3rem;
+}
+.vdashbtn{
+    margin-top:2rem;
+    display: inline-block;
+    width: 80%;
+}
+.dashbtn{
+    margin-top:2rem;
+    display: inline-block;
+    width: 60%;
+}
+.randomid{
+    border-bottom: 2px #ffff solid;
+    border-collapse: collapse;
+    background-color: #101010;
+    width: 100%;
+    color: #fff;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+.videosection{
+    padding: 2rem;
+    margin-top: 2rem;
+}
+.public{
+    margin-top: 3rem;
+}
+.cjoin{
+    background-color: #FDAF01;
+}
+.videosection{
+    margin-top:1rem;
+}
+
+.stream{
+   height:25rem;
+    border:10px #ffff solid;
+}
+.vid{
+    display:inline;
+   
+}
+.aboutus{
+    font-size: 2rem;
+}
+.team{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+.contactus{
+    text-align: center;
+}
+.memberpic{
+        height: 10rem;
+        width: 10rem;
+        border-radius: 2rem;
+}
+.memberdes{
+    color: #fff;
+    font-size: 1rem;
+}
+.membername{
+    font-family: Pattaya;
+    color: #fff;
+    font-size: 2rem;
+}
+.teammember{
+    margin-top: 1rem;
+    margin-left: .5rem;
+}
+.contactus{
+
+}
+.contactbtn{
+    background-color: #FDAF01;
+    font-size: 1.5rem;
+    width: 100%;
+    padding: 1rem;
+}
+.findus{
+    text-align: center;
+}
+.addressbox{
+    color: #101010;
+    background-color: #FDAF01;
+    margin-bottom: 2rem;
+}
+.abtag{
+    margin-top: 2rem;
+    margin-bottom: 3rem;
 }

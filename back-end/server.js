@@ -10,13 +10,11 @@ mongoose.connection.once('open', () => {
 
 //DB models
 require('./models/user');
-require('./models/message');
+// require('./models/message');
 require('./models/chatroom');
 
 // models for sockets
-const Message = mongoose.model("Message");
 const User = mongoose.model("User");
-const chatroomName = mongoose.model("Chatroom");
 
 // Server 
 const app = require("./app");
@@ -27,10 +25,10 @@ const server = app.listen(8000, () => {
 
 //Sockets
 const jwt = require('jsonwebtoken');
-
+const { v4: uuidV4 } = require('uuid');
 const io = require("socket.io")(server, {
     cors: {
-        origin: "http://localhost:3000",
+        origin: "*",
         credentials: true,
         rejectUnauthorized: false
     }
@@ -47,8 +45,15 @@ io.use(async (socket, next) => {
     } catch (err) { }
 });
 
-io.on('connection', (socket) => {
+io.on('connection',(socket) => {
     console.log("Connected : " + socket.userId);
+    socket.on("myinfo",async()=>{
+        var userInfo = await User.findOne({ _id: socket.userId });
+        const meData = { id: socket.id, name: userInfo.name ,userId:socket.userId};
+        socket.emit("me", meData);
+        console.log("user_name :" + userInfo.name);
+    })
+    
 
     socket.on("disconnect", () => {
         console.log("Disconnected : " + socket.userId);
@@ -63,35 +68,27 @@ io.on('connection', (socket) => {
         console.log("A user left chatroom : " + chatroomId);
     });
 
-    socket.on("chatroomMessage", async ({ chatroomId, message }) => {
+    socket.on("chatroomMessage", async ({ chatroomId, message}) => {
        
         const user = await User.findOne({ _id: socket.userId });
-
-        const newMessage = new Message({
-            chatroom: chatroomId,
-            user: socket.userId,
-            message,
-        });
-    
-
-        const msgidget = await newMessage.save();
-
-        const room = await chatroomName.findOne({ _id: chatroomId });
-        const RoomName = room.name;
-
         SendMessage = {
-            id: msgidget._id,
+            id: uuidV4(),
             message,
             name: user.name,
             userId: socket.userId,
-            RoomName,
-
+            socketId:socket.id
         };
-
 
         io.to(chatroomId).emit("newMessage", SendMessage);
 
-    
     });
+      socket.on("callUser", (data) => {
+		io.to(data.userToCall).emit("callUser", { signal: data.signalData, from: data.from, name: data.name })
+	})
+
+
+  socket.on("answerCall", (data) => {
+    io.to(data.to).emit("callAccepted", data.signal);
+  });
 });
 

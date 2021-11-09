@@ -1,6 +1,14 @@
 const mongoose = require("mongoose");
+const { v4: uuidV4 } = require('uuid');
 const Chatroom = mongoose.model("Chatroom");
 
+exports.generateChatroom = async (req, res) => {
+    const id = uuidV4();
+    res.json({
+        message: "Chatroom Generated !",
+        newRoomId: id,
+    });
+}
 
 exports.createChatroom = async (req, res) => {
     const { name } = req.body;
